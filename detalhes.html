@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Mangá</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Container principal da página de detalhes */
+        .details-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            margin-top: 20px;
+            max-width: 1200px; /* Aumenta a largura máxima do container */
+            margin: 20px auto; /* Centraliza o container na página */
+        }
+
+        /* Estilo da imagem do mangá */
+        .manga-image {
+            width: 300px; /* Aumenta a largura da imagem */
+            height: auto; /* Mantém a proporção da imagem */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+        }
+
+        /* Estilo da área de informações do mangá */
+        .manga-info {
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .manga-info h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .manga-info p {
+            margin: 10px 0;
+            font-size: 1.1em;
+            line-height: 1.5;
+        }
+
+        /* Estilo dos botões */
+        .button-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #333;
+        }
+
+        .button.secondary {
+            background-color: #666;
+        }
+
+        .button.secondary:hover {
+            background-color: #444;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Mangatalho</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="manga-detalhes" class="details-container">
+            <!-- Os detalhes do mangá serão inseridos aqui -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Melhor Atalho para mangás</p>
+    </footer>
+
+    <script>
+        // Capturar o ID da URL
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get('id');
+
+        // Reutilizar o array de livros
+        const livros = [
+            {
+                id: 1,
+                titulo: "Attack on Titan",
+                imagem: "https://cdn.kobo.com/book-images/fc99d295-1348-4849-bd96-8c25b25f3598/353/569/90/False/attack-on-titan-16.jpg",
+                descricao: "No anime, conhece-se a história do jovem Eren, que tem sua vida afetada para sempre após um ataque surpresa de um titã colossal acontecer. Sem ver um titã há mais de 100 anos, a cidade é surpreendida após perder suas barreiras de proteção e ver titãs de diversos tamanhos matando todos pelo caminho.",
+                genero: "Ação, Aventura, Drama, Fantasia e Suspense",
+                status: "Concluído",
+                urlCapitulo1: "https://exemplo.com/manga1/capitulo1",
+                urlTodosCapitulos: "https://exemplo.com/manga1/capitulos"
+            },
+            {
+                id: 2,
+                titulo: "Jujutsu Kaisen",
+                imagem: "https://cdn.kobo.com/book-images/44717797-1fe9-475e-bca1-fe8aa6d0e7d8/1200/1200/False/jujutsu-kaisen-vol-1.jpg",
+                descricao: "Acompanhe o jovem Yuji Itadori nesta história de ação sombria e sobrenatural, enquanto ele treina as perigosas artes dos Feiticeiros Jujutsu e explora o violento mundo das maldições! Yuji Itadori come um dedo amaldiçoado para salvar um colega de turma e agora Ryomen Sukuna, um terrível e poderoso feiticeiro conhecido como o Rei das Maldições, habita na alma de Itadori.",
+                genero: "Shounen, Sobrenatural e Ação",
+                status: "Concluído",
+                urlCapitulo1: "https://exemplo.com/manga2/capitulo1",
+                urlTodosCapitulos: "https://exemplo.com/manga2/capitulos"
+            },
+            {
+                id: 3,
+                titulo: "Haikyuu!!",
+                imagem: "link-para-imagem-manga1.jpg",
+                descricao: "A história segue as aventuras do jovem Shoyo Hinata: um garoto que se apaixona pelo voleibol durante o ensino fundamental e que deseja se tornar o melhor jogador.",
+                genero: "Shounen e Esportes",
+                status: "Andamento",
+                urlCapitulo1: "https://exemplo.com/manga2/capitulo1",
+                urlTodosCapitulos: "https://exemplo.com/manga2/capitulos"
+            },
+            {
+                id: 4,
+                titulo: "Demon Slayer",
+                imagem: "link-para-imagem-manga1.jpg",
+                descricao: "Demon Slayer é um anime que se passa no Japão, durante o período Taisho. Ele apresenta Tanjiro Kamado, um jovem bondoso que vendia carvão para viver, até o dia em que um demônio invade a sua casa, mata com requintes de crueldade os seus pais e amaldiçoa a sua irmã Nezuko.",
+                genero: "Shounen, Fantasia e Ação",
+                status: "Concluído",
+                urlCapitulo1: "https://exemplo.com/manga2/capitulo1",
+                urlTodosCapitulos: "https://exemplo.com/manga2/capitulos"
+            },
+            {
+                id: 5,
+                titulo: "Mangá 5",
+                imagem: "link-para-imagem-manga1.jpg",
+                descricao: "Uma jornada em um mundo pós-apocalíptico.",
+                genero: "Esporte, Ação",
+                status: "Concluído",
+                urlCapitulo1: "https://exemplo.com/manga2/capitulo1",
+                urlTodosCapitulos: "https://exemplo.com/manga2/capitulos"
+            },
+            
+            // Adicione mais mangás conforme necessário
+        ];
+
+        // Encontrar o mangá pelo ID
+        const manga = livros.find(livro => livro.id == id);
+
+        // Exibir os detalhes do mangá
+        if (manga) {
+            const container = document.getElementById('manga-detalhes');
+            
+            // Criação dos elementos da página
+            const img = document.createElement('img');
+            img.src = manga.imagem;
+            img.classList.add('manga-image');
+
+            const detailsDiv = document.createElement('div');
+            detailsDiv.classList.add('manga-info');
+
+            const titulo = document.createElement('h2');
+            titulo.textContent = manga.titulo;
+
+            const genero = document.createElement('p');
+            genero.innerHTML = `<strong>Gênero:</strong> ${manga.genero}`;
+
+            const status = document.createElement('p');
+            status.innerHTML = `<strong>Status:</strong> ${manga.status}`;
+
+            const descricao = document.createElement('p');
+            descricao.innerHTML = `<strong>Sinopse:</strong> ${manga.descricao}`;
+
+            const buttonContainer = document.createElement('div');
+            buttonContainer.classList.add('button-container');
+
+            const btnLer = document.createElement('a');
+            btnLer.href = manga.urlCapitulo1;
+            btnLer.textContent = "Iniciar Leitura";
+            btnLer.classList.add('button');
+
+            const btnCapitulos = document.createElement('a');
+            btnCapitulos.href = manga.urlTodosCapitulos;
+            btnCapitulos.textContent = "Ver Todos os Capítulos";
+            btnCapitulos.classList.add('button', 'secondary');
+
+            // Adiciona os elementos ao container de detalhes
+            detailsDiv.appendChild(titulo);
+            detailsDiv.appendChild(genero);
+            detailsDiv.appendChild(status);
+            detailsDiv.appendChild(descricao);
+            buttonContainer.appendChild(btnLer);
+            buttonContainer.appendChild(btnCapitulos);
+            detailsDiv.appendChild(buttonContainer);
+
+            // Adiciona a imagem e os detalhes ao container principal
+            container.appendChild(img);
+            container.appendChild(detailsDiv);
+        } else {
+            document.getElementById('manga-detalhes').innerHTML = "<p>Mangá não encontrado!</p>";
+        }
+    </script>
+</body>
+</html>

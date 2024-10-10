@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mangatalho</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Mangatalho</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" onclick="mostrarTodosLivros()">Início</a></li>
+                <li>
+                    <a href="#">Mangás</a>
+                    <ul class="dropdown">
+                        <li><a href="#" onclick="filtrarPorGenero('Ação')">Ação</a></li>
+                        <li><a href="#" onclick="filtrarPorGenero('Esporte')">Esporte</a></li>
+                        <!-- Adicione mais gêneros conforme necessário -->
+                    </ul>
+                </li>
+                <li><a href="#">Manhwa</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+            <input type="text" id="search-bar" placeholder="Pesquisar mangás...">
+        </nav>
+    </header>
+
+    <main>
+        <div class="book-container" id="book-container">
+            <!-- Livros e mangás serão gerados aqui pelo JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 - Melhor Atalho para mangás</p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

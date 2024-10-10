@@ -1,0 +1,198 @@
+/* Estilos gerais */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Remover margens desnecessárias */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    background-color: #000000;
+    color: white;
+    padding: 0;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #000000;
+    color: white;
+}
+
+.navbar .logo h1 {
+    margin: 0;
+    font-size: 1.8em;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    margin-left: 20px;
+    font-size: 1.2em;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px;
+}
+
+.nav-links a:hover {
+    background-color: #333;
+    border-radius: 4px;
+}
+
+/* Remover margem entre header e main */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    margin: 0;
+    padding: 0;
+}
+
+/* Container de livros */
+.book-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 0px;
+    background-color: #1b2838;
+}
+
+/* Estilo para os cards dos livros */
+.book-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    margin: 10px;
+    text-align: center;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #222;
+    transition: opacity 0.6s ease, transform 0.6s ease; /* Transições para opacidade e posição */
+}
+
+.book-card.visible {
+    opacity: 1; /* Totalmente visível */
+    transform: translateY(0); /* Na posição original */
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+}
+
+.book-card img {
+    width: auto; /* Aumenta a largura da imagem */
+    height: auto; /* Mantém a proporção da imagem */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+.book-card h3 {
+    padding: 10px;
+    font-size: 1.2em;
+    color: #fff;
+}
+
+.book-card a {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 10px;
+    background-color: #000000;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.book-card a:hover {
+    background-color: #333;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #000000;
+    color: white;
+    position: relative;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Estilo da barra de pesquisa */
+#search-bar {
+    padding: 10px;
+    margin-left: 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.dropdown {
+    display: none; /* Oculta o dropdown por padrão */
+    position: absolute;
+    background-color: #222; /* Cor de fundo do dropdown */
+    list-style: none;
+    margin-top: 10px;
+    border-radius: 4px;
+    z-index: 1;
+}
+
+.nav-links li {
+    position: relative; /* Necessário para o posicionamento do dropdown */
+}
+
+.nav-links li:hover .dropdown {
+    display: block; /* Mostra o dropdown quando o item é hover */
+}
+
+.dropdown li {
+    margin: 1px 0; /* Espaçamento entre as opções do dropdown */
+    font-size: 0.8em;
+}
+
+.dropdown a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #333; /* Cor ao passar o mouse */
+}
